@@ -373,21 +373,26 @@ section { position: relative; z-index: 1; }
   perspective: 1200px;
 }
 
-.glass-panel {
+.glass-panel-wrapper {
   position: absolute;
+  z-index: 2;
+  animation: floatPanel 6s infinite ease-in-out;
+}
+
+.glass-panel {
   background: rgba(10,14,23,0.6);
   border: 1px solid rgba(255,255,255,0.1);
   backdrop-filter: blur(16px);
   padding: 0.6rem 1rem;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
-  z-index: 2;
-  transition: transform 0.3s;
+  transition: all 0.3s;
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  white-space: nowrap;
 }
-.glass-panel:hover { transform: translateY(-5px); border-color: rgba(14,165,233,0.4); }
+.glass-panel:hover { border-color: rgba(14,165,233,0.5); box-shadow: 0 10px 40px rgba(14,165,233,0.2); }
 .panel-icon {
   width: 32px; height: 32px;
   background: linear-gradient(135deg, rgba(26,86,219,0.2), rgba(14,165,233,0.2));
@@ -396,14 +401,19 @@ section { position: relative; z-index: 1; }
   display: flex; align-items: center; justify-content: center;
   font-size: 1rem;
 }
-.panel-title { color: white; font-weight: 700; font-size: 0.8rem; margin-bottom: 0.1rem; }
-.panel-sub { color: rgba(255,255,255,0.4); font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.panel-title { color: white; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.1rem; }
+.panel-sub { color: rgba(255,255,255,0.5); font-size: 0.65rem; }
 
-.panel-crm { top: 10%; left: 0%; }
-.panel-erp { top: -2%; right: 25%; }
-.panel-powerbi { top: 12%; right: -5%; }
-.panel-apps { bottom: 25%; right: -8%; }
-.panel-ai { bottom: 40%; right: -12%; }
+.panel-crm { top: 5%; left: -15%; animation-delay: 0s; }
+.panel-erp { top: -5%; right: 10%; animation-delay: 1s; }
+.panel-powerbi { top: 25%; right: -25%; animation-delay: 2s; }
+.panel-apps { bottom: 15%; right: -22%; animation-delay: 3s; }
+.panel-ai { bottom: 30%; left: -22%; animation-delay: 4s; }
+
+@keyframes floatPanel {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
 
 /* Laptop */
 .laptop-mockup {
@@ -620,7 +630,7 @@ section { position: relative; z-index: 1; }
 /* Connection SVG */
 .connection-wrapper {
   position: absolute;
-  inset: -100px;
+  inset: -150px;
   z-index: 1;
   pointer-events: none;
 }
@@ -666,7 +676,7 @@ section { position: relative; z-index: 1; }
   .hero-actions-new, .hero-trust-grid { justify-content: center; }
   .hero-brand-tag { justify-content: center; }
   .hero-visual-ecosystem { margin-top: 4rem; height: 500px; perspective: 1000px; transform: scale(0.9); }
-  .glass-panel { display: none; }
+  .glass-panel-wrapper { display: none; }
   .connection-wrapper { display: none; }
 }
 
@@ -1721,44 +1731,60 @@ footer {
     <div class="hero-visual-ecosystem">
       
       <!-- SVG Connection Lines -->
-      <svg class="connection-wrapper" viewBox="0 0 1000 700">
+      <svg class="connection-wrapper" viewBox="0 0 1200 800">
         <defs>
           <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#0ea5e9"/>
             <stop offset="100%" stop-color="transparent"/>
           </linearGradient>
         </defs>
-        <path id="p1" class="conn-line" d="M 150 120 Q 300 250 450 350" />
-        <path id="p2" class="conn-line" d="M 800 120 Q 650 250 450 350" />
-        <path id="p3" class="conn-line" d="M 850 300 Q 700 350 450 400" />
-        <path id="p4" class="conn-line" d="M 150 500 Q 300 450 450 350" />
+        <path id="p1" class="conn-line" d="M 150 150 Q 350 250 500 400" />
+        <path id="p2" class="conn-line" d="M 900 150 Q 750 250 600 400" />
+        <path id="p3" class="conn-line" d="M 1000 350 Q 800 400 650 450" />
+        <path id="p4" class="conn-line" d="M 150 550 Q 350 500 500 450" />
+        <path id="p5" class="conn-line" d="M 200 350 Q 350 400 450 450" />
         
-        <circle class="data-particle" r="2.5"><animateMotion dur="4s" repeatCount="indefinite" path="M 150 120 Q 300 250 450 350" /></circle>
-        <circle class="data-particle" r="2.5"><animateMotion dur="5s" repeatCount="indefinite" path="M 800 120 Q 650 250 450 350" /></circle>
-        <circle class="data-particle" r="2.5"><animateMotion dur="3.5s" repeatCount="indefinite" path="M 850 300 Q 700 350 450 400" /></circle>
-        <circle class="data-particle" r="2.5"><animateMotion dur="4.5s" repeatCount="indefinite" path="M 150 500 Q 300 450 450 350" /></circle>
+        <circle class="data-particle" r="2.5"><animateMotion dur="4s" repeatCount="indefinite" path="M 150 150 Q 350 250 500 400" /></circle>
+        <circle class="data-particle" r="2.5"><animateMotion dur="5s" repeatCount="indefinite" path="M 900 150 Q 750 250 600 400" /></circle>
+        <circle class="data-particle" r="2.5"><animateMotion dur="3.5s" repeatCount="indefinite" path="M 1000 350 Q 800 400 650 450" /></circle>
+        <circle class="data-particle" r="2.5"><animateMotion dur="4.5s" repeatCount="indefinite" path="M 150 550 Q 350 500 500 450" /></circle>
+        <circle class="data-particle" r="2.5"><animateMotion dur="4.2s" repeatCount="indefinite" path="M 200 350 Q 350 400 450 450" /></circle>
       </svg>
       
       <!-- Floating Panels -->
-      <div class="glass-panel panel-crm">
-        <div class="panel-icon">👥</div>
-        <div><div class="panel-title">CRM</div><div class="panel-sub">Leads • Customers • Sales</div></div>
+      <div class="glass-panel-wrapper panel-crm">
+        <div class="glass-panel">
+          <div class="panel-icon">🚀</div>
+          <div><div class="panel-title">Accelerate Sales</div><div class="panel-sub">Close deals faster with automated CRM</div></div>
+        </div>
       </div>
-      <div class="glass-panel panel-erp">
-        <div class="panel-icon">📦</div>
-        <div><div class="panel-title">ERP</div><div class="panel-sub">Inventory • Purchase • Operations</div></div>
+      
+      <div class="glass-panel-wrapper panel-erp">
+        <div class="glass-panel">
+          <div class="panel-icon">⚙️</div>
+          <div><div class="panel-title">Optimize Operations</div><div class="panel-sub">Reduce costs with intelligent ERP</div></div>
+        </div>
       </div>
-      <div class="glass-panel panel-powerbi">
-        <div class="panel-icon">📊</div>
-        <div><div class="panel-title">Power BI</div><div class="panel-sub">Dashboards • Insights • Forecasting</div></div>
+      
+      <div class="glass-panel-wrapper panel-powerbi">
+        <div class="glass-panel">
+          <div class="panel-icon">📈</div>
+          <div><div class="panel-title">Unlock Insights</div><div class="panel-sub">Real-time data for better decisions</div></div>
+        </div>
       </div>
-      <div class="glass-panel panel-apps">
-        <div class="panel-icon">💻</div>
-        <div><div class="panel-title">Custom Apps</div><div class="panel-sub">Web • Mobile • Internal Tools</div></div>
+      
+      <div class="glass-panel-wrapper panel-apps">
+        <div class="glass-panel">
+          <div class="panel-icon">💻</div>
+          <div><div class="panel-title">Automate Growth</div><div class="panel-sub">Scale faster with custom systems</div></div>
+        </div>
       </div>
-      <div class="glass-panel panel-ai">
-        <div class="panel-icon">🧠</div>
-        <div><div class="panel-title">AI Analytics</div><div class="panel-sub">Predictions • Optimization • Intelligence</div></div>
+      
+      <div class="glass-panel-wrapper panel-ai">
+        <div class="glass-panel">
+          <div class="panel-icon">🧠</div>
+          <div><div class="panel-title">Predict Trends</div><div class="panel-sub">AI-driven sales intelligence</div></div>
+        </div>
       </div>
 
       <!-- Laptop Mockup -->
