@@ -202,41 +202,45 @@ section { position: relative; z-index: 1; }
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(14,165,233,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14,165,233,0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.6;
+    linear-gradient(rgba(14,165,233,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,165,233,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
 .hero-glow-main {
   position: absolute;
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(26,86,219,0.15) 0%, transparent 60%);
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 60%);
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
 .hero-inner-new {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 4%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 2rem;
   align-items: center;
   width: 100%;
   position: relative;
   z-index: 10;
 }
 
+/* LEFT SIDE */
+.hero-content {
+  padding-right: 1rem;
+}
+
 .hero-eyebrow-new {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: rgba(16,185,129,0.1);
+  background: rgba(16,185,129,0.08);
   border: 1px solid rgba(16,185,129,0.25);
-  color: #10b981; /* Subtle green for positive growth */
+  color: #10b981;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -256,14 +260,14 @@ section { position: relative; z-index: 1; }
 
 @keyframes pulseGreen {
   0% { box-shadow: 0 0 0 0 rgba(16,185,129, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(16,185,129, 0); }
+  70% { box-shadow: 0 0 0 8px rgba(16,185,129, 0); }
   100% { box-shadow: 0 0 0 0 rgba(16,185,129, 0); }
 }
 
 .hero-content h1 {
-  font-size: clamp(3rem, 5vw, 4.8rem);
+  font-size: clamp(3rem, 4.5vw, 4.8rem);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.05;
   letter-spacing: -0.03em;
   color: white;
   margin-bottom: 1.5rem;
@@ -281,13 +285,14 @@ section { position: relative; z-index: 1; }
   color: rgba(255,255,255,0.65);
   font-size: 1.1rem;
   line-height: 1.8;
-  max-width: 540px;
+  max-width: 500px;
   margin-bottom: 2.5rem;
   animation: fadeUp 0.8s 0.2s ease backwards;
 }
 
 .hero-actions-new {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 3.5rem;
   animation: fadeUp 0.8s 0.3s ease backwards;
@@ -296,230 +301,323 @@ section { position: relative; z-index: 1; }
 .btn-blue-new {
   background: linear-gradient(135deg, #1a56db, #0ea5e9);
   color: white;
-  padding: 0.9rem 2.2rem;
-  border-radius: 12px;
+  padding: 0.9rem 1.8rem;
+  border-radius: 10px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.3s;
   box-shadow: 0 8px 25px rgba(26,86,219,0.4);
 }
-
-.btn-blue-new:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(26,86,219,0.6);
-}
+.btn-blue-new:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(26,86,219,0.6); }
 
 .btn-outline-glass {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.15);
   color: white;
-  padding: 0.9rem 2.2rem;
-  border-radius: 12px;
+  padding: 0.9rem 1.8rem;
+  border-radius: 10px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
   backdrop-filter: blur(10px);
   transition: all 0.3s;
 }
+.btn-outline-glass:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
 
-.btn-outline-glass:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.3);
-}
-
-.hero-brand-tag {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+/* TRUST MARKERS */
+.hero-trust-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.08);
   animation: fadeUp 0.8s 0.4s ease backwards;
 }
 
-.tag-title {
-  font-weight: 800;
-  color: white;
-  font-size: 1rem;
+.h-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
-
-.tag-divider { color: rgba(255,255,255,0.2); }
-
-.tag-desc {
-  font-size: 0.75rem;
+.h-trust-icon {
+  width: 36px; height: 36px;
+  background: rgba(14,165,233,0.1);
+  border: 1px solid rgba(14,165,233,0.2);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
   color: #0ea5e9;
-  letter-spacing: 0.1em;
-  font-weight: 700;
+  font-size: 1.2rem;
 }
-
-.tag-sub {
-  width: 100%;
+.h-trust-text {
   font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.h-trust-text span {
+  display: block;
+  font-size: 0.7rem;
   color: rgba(255,255,255,0.4);
-  margin-top: 0.2rem;
+  font-weight: 400;
 }
 
 /* RIGHT SIDE ECOSYSTEM */
 .hero-visual-ecosystem {
   position: relative;
-  height: 600px;
+  height: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: fadeUp 1s 0.4s ease backwards;
+  perspective: 1200px;
 }
 
 .glass-panel {
   position: absolute;
-  background: rgba(255,255,255,0.03);
+  background: rgba(10,14,23,0.6);
   border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(12px);
-  padding: 0.8rem 1.2rem;
+  backdrop-filter: blur(16px);
+  padding: 0.6rem 1rem;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
   z-index: 2;
   transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
-
-.glass-panel:hover {
-  transform: translateY(-5px);
-  border-color: rgba(14,165,233,0.4);
+.glass-panel:hover { transform: translateY(-5px); border-color: rgba(14,165,233,0.4); }
+.panel-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, rgba(26,86,219,0.2), rgba(14,165,233,0.2));
+  border: 1px solid rgba(14,165,233,0.3);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
 }
+.panel-title { color: white; font-weight: 700; font-size: 0.8rem; margin-bottom: 0.1rem; }
+.panel-sub { color: rgba(255,255,255,0.4); font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
-.panel-title {
-  color: white;
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 0.2rem;
-}
-
-.panel-sub {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.65rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.panel-crm { top: 5%; left: 0; }
-.panel-erp { top: -2%; right: 10%; }
-.panel-powerbi { top: 35%; right: -10%; }
-.panel-apps { bottom: 25%; left: -5%; }
-.panel-auto { bottom: -2%; right: 15%; }
-.panel-ai { top: 30%; left: -15%; }
+.panel-crm { top: 10%; left: 0%; }
+.panel-erp { top: -2%; right: 25%; }
+.panel-powerbi { top: 12%; right: -5%; }
+.panel-apps { bottom: 25%; right: -8%; }
+.panel-ai { bottom: 40%; right: -12%; }
 
 /* Laptop */
 .laptop-mockup {
   position: relative;
-  width: 500px;
+  width: 680px;
   z-index: 5;
-  perspective: 1000px;
+  transform: rotateY(-5deg) rotateX(2deg);
+  box-shadow: -20px 30px 60px rgba(0,0,0,0.6);
+  border-radius: 12px 12px 0 0;
 }
 
 .laptop-screen {
-  background: #0a0e17;
-  border: 8px solid #1e293b;
+  background: #080c14;
+  border: 10px solid #1e293b;
   border-radius: 16px 16px 0 0;
-  height: 320px;
+  height: 420px;
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
 }
+.laptop-screen::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
 
 .laptop-base {
-  height: 12px;
-  background: #334155;
+  height: 14px;
+  background: linear-gradient(to bottom, #475569, #1e293b);
   border-radius: 0 0 16px 16px;
   position: relative;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
 }
-.laptop-base::before {
-  content: '';
+.laptop-lip {
   position: absolute;
   top: 0; left: 50%;
   transform: translateX(-50%);
-  width: 60px; height: 4px;
-  background: #475569;
+  width: 80px; height: 4px;
+  background: #64748b;
   border-radius: 0 0 4px 4px;
 }
 
+/* System Dashboard UI */
 .sys-header {
-  background: #111827;
-  padding: 0.8rem 1rem;
-  border-bottom: 1px solid #1e293b;
+  background: #0f1523;
+  padding: 0.6rem 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.sys-logo { color: white; font-weight: 700; font-size: 0.8rem; }
-.sys-nav { display: flex; gap: 1rem; color: #64748b; font-size: 0.7rem; }
-.sys-nav span:first-child { color: #0ea5e9; }
+.sys-logo { display: flex; align-items: center; gap: 0.5rem; color: white; font-weight: 700; font-size: 0.8rem; }
+.logo-box { background: linear-gradient(135deg, #1a56db, #0ea5e9); color: white; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 0.6rem;}
+.sys-search { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 6px; padding: 0.3rem 0.8rem; color: rgba(255,255,255,0.3); font-size: 0.7rem; width: 200px; display: flex; align-items: center; gap: 0.4rem; }
+.sys-header-right { display: flex; align-items: center; gap: 1rem; }
+.sys-live { display: flex; align-items: center; gap: 0.4rem; background: rgba(16,185,129,0.1); padding: 0.2rem 0.5rem; border-radius: 4px; color: #10b981; font-size: 0.65rem; font-weight: 700;}
+.sys-bell { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+.sys-avatar { width: 24px; height: 24px; border-radius: 50%; background: #0ea5e9; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;}
+.sys-user { color: rgba(255,255,255,0.8); font-size: 0.7rem; line-height: 1.2;}
+.sys-user span { color: rgba(255,255,255,0.4); font-size: 0.6rem; }
 
-.sys-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
-.sys-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
-.sys-kpi {
-  background: #111827;
-  border: 1px solid #1e293b;
+.sys-body-container { flex: 1; display: flex; overflow: hidden; }
+
+/* Sidebar */
+.sys-sidebar {
+  width: 130px;
+  background: #0a0e17;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.side-item {
+  padding: 0.4rem 1rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.7rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.side-item.active { background: linear-gradient(90deg, rgba(14,165,233,0.1), transparent); color: #0ea5e9; border-left: 2px solid #0ea5e9; }
+.side-item i { width: 14px; text-align: center; font-style: normal;}
+
+/* Main Dash */
+.sys-main { flex: 1; padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem; background: #080c14; }
+
+.sys-kpis-top { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; }
+.sys-kpi-card {
+  background: #0f1523;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 0.8rem;
+  position: relative;
+}
+.kpi-title { display: block; color: rgba(255,255,255,0.5); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;}
+.sys-kpi-card strong { display: block; color: white; font-size: 1.3rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.kpi-change { display: block; font-size: 0.6rem; margin-top: 0.3rem; }
+.kpi-change.up { color: #10b981; }
+
+.sys-charts-mid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0.8rem; }
+.sys-box {
+  background: #0f1523;
+  border: 1px solid rgba(255,255,255,0.05);
   border-radius: 8px;
   padding: 0.8rem;
 }
-.sys-kpi span { display: block; color: #64748b; font-size: 0.65rem; text-transform: uppercase; margin-bottom: 0.3rem;}
-.sys-kpi strong { display: block; color: white; font-size: 1.2rem; font-weight: 700; }
+.box-head { color: white; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.8rem; display: flex; justify-content: space-between;}
 
-.sys-chart-area {
-  flex: 1;
-  background: #111827;
-  border: 1px solid #1e293b;
-  border-radius: 8px;
-  padding: 1rem;
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
+.sales-chart { height: 90px; position: relative; }
+.chart-line {
+  fill: none;
+  stroke: #0ea5e9;
+  stroke-width: 2;
+  filter: drop-shadow(0 4px 6px rgba(14,165,233,0.4));
+  animation: lineDash 10s linear infinite;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 0;
 }
-.c-bar {
-  flex: 1;
-  background: linear-gradient(to top, #1a56db, #0ea5e9);
-  border-radius: 4px 4px 0 0;
-  animation: liveBar 3s infinite alternate ease-in-out;
-}
-.c-bar:nth-child(2) { animation-delay: -0.5s; }
-.c-bar:nth-child(3) { animation-delay: -1s; }
-.c-bar:nth-child(4) { animation-delay: -1.5s; }
-.c-bar:nth-child(5) { animation-delay: -2s; }
-.c-bar:nth-child(6) { animation-delay: -2.5s; }
-.c-bar:nth-child(7) { animation-delay: -3s; }
+@keyframes lineDash { to { stroke-dashoffset: -400; } }
+.chart-area { fill: url(#chart-grad); opacity: 0.2; }
 
-@keyframes liveBar {
-  0% { height: 30%; }
-  100% { height: 90%; }
-}
+.pipe-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+.pipe-label { width: 50px; font-size: 0.6rem; color: rgba(255,255,255,0.5); }
+.pipe-val { font-size: 0.7rem; color: white; font-weight: 600; width: 30px; text-align: right;}
+.pipe-track { flex: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; }
+.pipe-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #1a56db, #0ea5e9); transition: width 1s ease-in-out;}
+
+.sys-charts-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; flex: 1; }
+.mini-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; font-size: 0.65rem;}
+.mini-row span { color: rgba(255,255,255,0.6); }
+.mini-row strong { color: white; }
+.mini-bar { width: 100%; height: 4px; background: rgba(255,255,255,0.05); border-radius: 2px; margin-bottom: 0.6rem;}
+.mini-fill { height: 100%; background: #0ea5e9; border-radius: 2px; }
+
+.act-row { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.6rem; }
+.act-icon { width: 18px; height: 18px; border-radius: 4px; background: rgba(16,185,129,0.1); color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 0.5rem; }
+.act-text { font-size: 0.65rem; color: white; line-height: 1.2; }
+.act-time { display: block; font-size: 0.55rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem;}
 
 /* Phone */
 .phone-mockup {
   position: absolute;
-  width: 140px;
-  height: 280px;
-  background: #0a0e17;
+  width: 180px;
+  height: 380px;
+  background: #000;
   border: 6px solid #1e293b;
   border-radius: 24px;
-  bottom: -20px;
-  right: -20px;
+  bottom: -30px;
+  right: -50px;
   z-index: 10;
   overflow: hidden;
-  box-shadow: -10px 10px 30px rgba(0,0,0,0.5);
+  box-shadow: -20px 20px 40px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.1);
+  transform: rotateY(-10deg) rotateX(5deg);
 }
+.notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 15px; background: #1e293b; border-radius: 0 0 10px 10px; z-index: 20;}
 
-.phone-screen { padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem; height: 100%; }
-.phone-header { color: white; font-size: 0.75rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
-.p-kpi { background: #111827; padding: 0.6rem; border-radius: 6px; border: 1px solid #1e293b;}
-.p-kpi span { color: #64748b; font-size: 0.6rem; display: block;}
-.p-kpi strong { color: white; font-size: 1rem; font-weight: 700; display: block;}
+.phone-screen { background: #080c14; height: 100%; display: flex; flex-direction: column; }
+.p-header { padding: 1.2rem 1rem 0.8rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.p-logo { color: white; font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 0.4rem;}
+.p-live { background: rgba(16,185,129,0.1); color: #10b981; font-size: 0.55rem; padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 700;}
+.p-bell { color: white; font-size: 0.8rem; position: relative;}
+.p-bell::after { content: ''; position: absolute; top: -2px; right: -2px; width: 6px; height: 6px; background: #ef4444; border-radius: 50%; border: 1px solid #000;}
 
-.p-item { display: flex; gap: 0.5rem; align-items: center; background: #111827; padding: 0.5rem; border-radius: 6px; }
-.p-avatar { width: 20px; height: 20px; border-radius: 50%; background: #334155; }
-.p-line { height: 6px; width: 60%; background: #334155; border-radius: 3px; }
+.p-body { padding: 0.8rem; flex: 1; overflow: hidden; display: flex; flex-direction: column; gap: 0.8rem;}
+.p-main-card { background: linear-gradient(135deg, #1a56db, #0ea5e9); border-radius: 10px; padding: 1rem; color: white; position: relative; overflow: hidden;}
+.p-main-title { font-size: 0.65rem; color: rgba(255,255,255,0.7); margin-bottom: 0.2rem;}
+.p-main-val { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.p-main-change { font-size: 0.6rem; color: #a7f3d0; margin-top: 0.2rem;}
+.p-card-chart { position: absolute; bottom: 0; right: 0; width: 80px; height: 40px; display: flex; align-items: flex-end; gap: 2px; padding: 0 0.5rem;}
+.p-bar { flex: 1; background: rgba(255,255,255,0.4); border-radius: 2px 2px 0 0; animation: pBarAnim 4s infinite alternate ease-in-out;}
+.p-bar:nth-child(2) { animation-delay: -1s; }
+.p-bar:nth-child(3) { animation-delay: -2s; }
+.p-bar:nth-child(4) { animation-delay: -3s; }
+@keyframes pBarAnim { 0% { height: 20%; } 100% { height: 80%; } }
 
-/* Connection Lines */
+.p-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.p-kpi { background: #0f1523; border: 1px solid rgba(255,255,255,0.05); padding: 0.6rem; border-radius: 8px;}
+.p-kpi span { font-size: 0.6rem; color: rgba(255,255,255,0.5); display: block; margin-bottom: 0.2rem;}
+.p-kpi strong { font-size: 1rem; color: white; font-weight: 700; display: block; font-variant-numeric: tabular-nums;}
+.p-kpi .change { font-size: 0.55rem; color: #10b981; }
+
+.p-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
+.p-act-btn { background: #0f1523; border-radius: 8px; padding: 0.5rem 0; display: flex; flex-direction: column; align-items: center; gap: 0.3rem;}
+.p-act-icon { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+.p-act-btn span { font-size: 0.5rem; color: rgba(255,255,255,0.6); }
+
+.p-list-header { display: flex; justify-content: space-between; font-size: 0.65rem; color: white; font-weight: 600; margin-top: 0.2rem;}
+.p-list-header a { color: #0ea5e9; text-decoration: none; }
+.p-lead { display: flex; align-items: center; gap: 0.6rem; background: #0f1523; padding: 0.5rem; border-radius: 8px;}
+.p-avatar { width: 24px; height: 24px; border-radius: 50%; background: #334155; }
+.p-lead-info { flex: 1; }
+.p-lead-info strong { display: block; font-size: 0.65rem; color: white; }
+.p-lead-info span { display: block; font-size: 0.55rem; color: rgba(255,255,255,0.5); }
+.p-time { font-size: 0.5rem; color: rgba(255,255,255,0.3); }
+
+/* Animation Classes for Numbers */
+.anim-rev::after { content: "₹48.4L"; animation: animRev 12s infinite steps(1); }
+@keyframes animRev { 0% { content: "₹48.4L"; } 25% { content: "₹48.7L"; } 50% { content: "₹48.9L"; } 75% { content: "₹49.2L"; } }
+
+.anim-ord::after { content: "1,487"; animation: animOrd 15s infinite steps(1); }
+@keyframes animOrd { 0% { content: "1,487"; } 33% { content: "1,492"; } 66% { content: "1,504"; } }
+
+.anim-cust::after { content: "892"; animation: animCust 10s infinite steps(1); }
+@keyframes animCust { 0% { content: "892"; } 50% { content: "895"; } }
+
+.anim-leads::after { content: "27"; animation: animLeads 8s infinite steps(1); }
+@keyframes animLeads { 0% { content: "27"; } 50% { content: "29"; } }
+
+/* Connection SVG */
 .connection-wrapper {
   position: absolute;
   inset: -100px;
@@ -527,55 +625,56 @@ section { position: relative; z-index: 1; }
   pointer-events: none;
 }
 .conn-line {
-  stroke: rgba(14,165,233, 0.3);
-  stroke-width: 1;
+  stroke: rgba(14,165,233, 0.4);
+  stroke-width: 1.5;
   fill: none;
-  stroke-dasharray: 4;
-  animation: dashAnim 20s linear infinite;
+  stroke-dasharray: 4 6;
+  animation: dashAnim 30s linear infinite;
 }
-@keyframes dashAnim { to { stroke-dashoffset: -100; } }
+@keyframes dashAnim { to { stroke-dashoffset: -200; } }
+.data-particle { fill: #0ea5e9; filter: drop-shadow(0 0 6px #0ea5e9); }
 
-.data-particle {
-  fill: #0ea5e9;
-  filter: drop-shadow(0 0 4px #0ea5e9);
-}
-
-/* Capability Strip */
+/* Bottom Strip */
 .capability-strip {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: rgba(255,255,255,0.03);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  padding: 1.2rem 0;
+  background: rgba(10,14,23,0.8);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 1.5rem 0;
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 3rem;
   flex-wrap: wrap;
+  position: relative;
   z-index: 20;
 }
 .cap-item {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .cap-item:hover { color: white; }
+.cap-icon { color: #0ea5e9; font-size: 1.1rem; }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@media (max-width: 1200px) {
+  .hero-inner-new { grid-template-columns: 1fr; text-align: center; }
+  .hero-actions-new, .hero-trust-grid { justify-content: center; }
+  .hero-brand-tag { justify-content: center; }
+  .hero-visual-ecosystem { margin-top: 4rem; height: 500px; perspective: 1000px; transform: scale(0.9); }
+  .glass-panel { display: none; }
+  .connection-wrapper { display: none; }
 }
 
-@media (max-width: 1024px) {
-  .hero-inner-new { grid-template-columns: 1fr; text-align: center; }
-  .hero-actions-new { justify-content: center; }
-  .hero-brand-tag { justify-content: center; }
-  .hero-visual-ecosystem { margin-top: 3rem; }
+@media (max-width: 768px) {
+  .hero-visual-ecosystem { transform: scale(0.65); margin-top: 0; }
   .capability-strip { display: none; }
-  .glass-panel { display: none; }
+  .hero-content h1 { font-size: 2.5rem; }
+  .phone-mockup { right: -20px; }
 }
 
 /* ─── LOGOS ─── */
@@ -1587,9 +1686,10 @@ footer {
   
   <div class="hero-inner-new">
     
+    <!-- LEFT SIDE -->
     <div class="hero-content">
       <div class="hero-eyebrow-new">
-        <div class="live-dot"></div> LIVE SYSTEM
+        <div class="live-dot"></div> LIVE BUSINESS DATA
       </div>
       
       <h1>Build Smarter.<br>Run Better.<br><span class="text-gradient">Grow Faster.</span></h1>
@@ -1601,119 +1701,291 @@ footer {
         <a href="#services" class="btn-outline-glass">Explore Our Solutions →</a>
       </div>
       
-      <div class="hero-brand-tag">
-        <span class="tag-title">Teno Analytics</span>
-        <span class="tag-divider">|</span>
-        <span class="tag-desc">BUSINESS SYSTEMS • DATA • AUTOMATION</span>
-        <div class="tag-sub">One technology partner. Your entire business ecosystem.</div>
+      <div class="hero-trust-grid">
+         <div class="h-trust-item">
+            <div class="h-trust-icon">🛡️</div>
+            <div class="h-trust-text">Custom Solutions<span>Built for Your Business</span></div>
+         </div>
+         <div class="h-trust-item">
+            <div class="h-trust-icon">⚡</div>
+            <div class="h-trust-text">Faster Operations<span>Through Automation</span></div>
+         </div>
+         <div class="h-trust-item">
+            <div class="h-trust-icon">📊</div>
+            <div class="h-trust-text">Data-Driven Growth<span>With AI & Analytics</span></div>
+         </div>
       </div>
     </div>
     
+    <!-- RIGHT SIDE -->
     <div class="hero-visual-ecosystem">
       
-      <!-- Floating Glass Panels -->
-      <div class="glass-panel panel-crm">
-        <div class="panel-title">CRM</div>
-        <div class="panel-sub">Leads • Customers • Sales</div>
-      </div>
-      <div class="glass-panel panel-erp">
-        <div class="panel-title">ERP</div>
-        <div class="panel-sub">Inventory • Purchase • Operations</div>
-      </div>
-      <div class="glass-panel panel-powerbi">
-        <div class="panel-title">Power BI</div>
-        <div class="panel-sub">Dashboards • Insights • Forecasting</div>
-      </div>
-      <div class="glass-panel panel-apps">
-        <div class="panel-title">Custom Apps</div>
-        <div class="panel-sub">Web • Mobile • Internal Tools</div>
-      </div>
-      <div class="glass-panel panel-auto">
-        <div class="panel-title">Automation</div>
-        <div class="panel-sub">Reports • Workflows • Integrations</div>
-      </div>
-      <div class="glass-panel panel-ai">
-        <div class="panel-title">AI Analytics</div>
-        <div class="panel-sub">Predictions • Intelligence • Optimization</div>
-      </div>
-
-      <!-- Connection SVG Background -->
-      <svg class="connection-wrapper" viewBox="0 0 800 600">
-        <!-- Lines -->
-        <path id="path1" class="conn-line" d="M 100 150 Q 250 150 400 300" />
-        <path id="path2" class="conn-line" d="M 700 150 Q 550 150 400 300" />
-        <path id="path3" class="conn-line" d="M 100 450 Q 250 450 400 300" />
-        <path id="path4" class="conn-line" d="M 700 450 Q 550 450 400 300" />
-        <!-- Particles -->
-        <circle class="data-particle" r="3">
-           <animateMotion dur="4s" repeatCount="indefinite" path="M 100 150 Q 250 150 400 300" />
-        </circle>
-        <circle class="data-particle" r="3">
-           <animateMotion dur="3.5s" repeatCount="indefinite" path="M 700 150 Q 550 150 400 300" />
-        </circle>
-        <circle class="data-particle" r="3">
-           <animateMotion dur="4.5s" repeatCount="indefinite" path="M 100 450 Q 250 450 400 300" />
-        </circle>
-        <circle class="data-particle" r="3">
-           <animateMotion dur="3s" repeatCount="indefinite" path="M 700 450 Q 550 450 400 300" />
-        </circle>
+      <!-- SVG Connection Lines -->
+      <svg class="connection-wrapper" viewBox="0 0 1000 700">
+        <defs>
+          <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0ea5e9"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+        </defs>
+        <path id="p1" class="conn-line" d="M 150 120 Q 300 250 450 350" />
+        <path id="p2" class="conn-line" d="M 800 120 Q 650 250 450 350" />
+        <path id="p3" class="conn-line" d="M 850 300 Q 700 350 450 400" />
+        <path id="p4" class="conn-line" d="M 150 500 Q 300 450 450 350" />
+        
+        <circle class="data-particle" r="2.5"><animateMotion dur="4s" repeatCount="indefinite" path="M 150 120 Q 300 250 450 350" /></circle>
+        <circle class="data-particle" r="2.5"><animateMotion dur="5s" repeatCount="indefinite" path="M 800 120 Q 650 250 450 350" /></circle>
+        <circle class="data-particle" r="2.5"><animateMotion dur="3.5s" repeatCount="indefinite" path="M 850 300 Q 700 350 450 400" /></circle>
+        <circle class="data-particle" r="2.5"><animateMotion dur="4.5s" repeatCount="indefinite" path="M 150 500 Q 300 450 450 350" /></circle>
       </svg>
       
+      <!-- Floating Panels -->
+      <div class="glass-panel panel-crm">
+        <div class="panel-icon">👥</div>
+        <div><div class="panel-title">CRM</div><div class="panel-sub">Leads • Customers • Sales</div></div>
+      </div>
+      <div class="glass-panel panel-erp">
+        <div class="panel-icon">📦</div>
+        <div><div class="panel-title">ERP</div><div class="panel-sub">Inventory • Purchase • Operations</div></div>
+      </div>
+      <div class="glass-panel panel-powerbi">
+        <div class="panel-icon">📊</div>
+        <div><div class="panel-title">Power BI</div><div class="panel-sub">Dashboards • Insights • Forecasting</div></div>
+      </div>
+      <div class="glass-panel panel-apps">
+        <div class="panel-icon">💻</div>
+        <div><div class="panel-title">Custom Apps</div><div class="panel-sub">Web • Mobile • Internal Tools</div></div>
+      </div>
+      <div class="glass-panel panel-ai">
+        <div class="panel-icon">🧠</div>
+        <div><div class="panel-title">AI Analytics</div><div class="panel-sub">Predictions • Optimization • Intelligence</div></div>
+      </div>
+
+      <!-- Laptop Mockup -->
       <div class="laptop-mockup">
         <div class="laptop-screen">
           <div class="sys-header">
-            <div class="sys-logo">Teno Business System</div>
-            <div class="sys-nav"><span>Overview</span><span>CRM</span><span>ERP</span></div>
-          </div>
-          <div class="sys-body">
-            <div class="sys-kpis">
-              <div class="sys-kpi"><span>Revenue</span><strong>₹48.2L</strong></div>
-              <div class="sys-kpi"><span>Orders</span><strong>1,482</strong></div>
-              <div class="sys-kpi"><span>Customers</span><strong>892</strong></div>
+            <div class="sys-logo"><div class="logo-box">TA</div> Teno Analytics</div>
+            <div class="sys-search">🔍 Search anything...</div>
+            <div class="sys-header-right">
+               <div class="sys-live"><div class="live-dot-small" style="width:6px;height:6px;background:#10b981;border-radius:50%"></div> Live</div>
+               <div class="sys-bell">🔔</div>
+               <div class="sys-avatar">T</div>
+               <div class="sys-user">Teno<br><span>Admin</span></div>
             </div>
-            <div class="sys-chart-area">
-               <div class="c-bar" style="height: 40%"></div>
-               <div class="c-bar" style="height: 62%"></div>
-               <div class="c-bar" style="height: 38%"></div>
-               <div class="c-bar" style="height: 75%"></div>
-               <div class="c-bar" style="height: 55%"></div>
-               <div class="c-bar" style="height: 88%"></div>
-               <div class="c-bar" style="height: 67%"></div>
-               <div class="c-bar" style="height: 92%"></div>
+          </div>
+          <div class="sys-body-container">
+            <!-- Sidebar -->
+            <div class="sys-sidebar">
+              <div class="side-item active"><i>📊</i> Dashboard</div>
+              <div class="side-item"><i>👥</i> CRM</div>
+              <div class="side-item"><i>💰</i> Sales</div>
+              <div class="side-item"><i>🤝</i> Customers</div>
+              <div class="side-item"><i>📦</i> Inventory</div>
+              <div class="side-item"><i>🛒</i> Purchases</div>
+              <div class="side-item"><i>💳</i> Finance</div>
+              <div class="side-item"><i>📈</i> Power BI</div>
+              <div class="side-item"><i>🧠</i> AI Analytics</div>
+              <div class="side-item"><i>⚙️</i> Settings</div>
+            </div>
+            <!-- Main Dash -->
+            <div class="sys-main">
+              <div class="sys-kpis-top">
+                 <div class="sys-kpi-card">
+                    <span class="kpi-title">Revenue</span>
+                    <strong class="anim-rev"></strong>
+                    <span class="kpi-change up">↑ 12% vs last month</span>
+                 </div>
+                 <div class="sys-kpi-card">
+                    <span class="kpi-title">Orders</span>
+                    <strong class="anim-ord"></strong>
+                    <span class="kpi-change up">↑ 8%</span>
+                 </div>
+                 <div class="sys-kpi-card">
+                    <span class="kpi-title">Customers</span>
+                    <strong class="anim-cust"></strong>
+                    <span class="kpi-change up">↑ 6%</span>
+                 </div>
+                 <div class="sys-kpi-card">
+                    <span class="kpi-title">Profit</span>
+                    <strong>₹12.6L</strong>
+                    <span class="kpi-change up">↑ 14%</span>
+                 </div>
+              </div>
+              
+              <div class="sys-charts-mid">
+                 <div class="sys-box">
+                    <div class="box-head">Sales Trend <span style="font-size:0.6rem;color:#64748b">● Revenue &nbsp; ● Orders</span></div>
+                    <div class="sales-chart">
+                       <svg viewBox="0 0 200 60" style="width:100%;height:100%">
+                         <path class="chart-area" d="M0 50 Q 20 20 40 40 T 80 30 T 120 45 T 160 20 T 200 35 L 200 60 L 0 60 Z"/>
+                         <path class="chart-line" d="M0 50 Q 20 20 40 40 T 80 30 T 120 45 T 160 20 T 200 35"/>
+                       </svg>
+                       <div style="position:absolute;bottom:-15px;display:flex;justify-content:space-between;width:100%;font-size:0.55rem;color:#64748b">
+                          <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="sys-box">
+                    <div class="box-head">Lead Pipeline <span style="font-size:0.6rem;color:#64748b;background:rgba(255,255,255,0.05);padding:0.1rem 0.3rem;border-radius:4px;">Last 6 Months ▾</span></div>
+                    <div>
+                       <div class="pipe-row">
+                          <div class="pipe-label">245<br><span style="font-size:0.5rem">New Leads</span></div>
+                          <div class="pipe-track"><div class="pipe-fill" style="width:100%"></div></div>
+                       </div>
+                       <div class="pipe-row">
+                          <div class="pipe-label">84<br><span style="font-size:0.5rem">Qualified</span></div>
+                          <div class="pipe-track"><div class="pipe-fill" style="width:65%"></div></div>
+                       </div>
+                       <div class="pipe-row">
+                          <div class="pipe-label">42<br><span style="font-size:0.5rem">Converted</span></div>
+                          <div class="pipe-track"><div class="pipe-fill" style="width:35%"></div></div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              
+              <div class="sys-charts-bottom">
+                 <div class="sys-box">
+                    <div class="box-head">Branch Performance</div>
+                    <div>
+                       <div class="mini-row"><span>Kochi</span><strong>₹12.4L</strong></div>
+                       <div class="mini-bar"><div class="mini-fill" style="width:80%"></div></div>
+                       <div class="mini-row"><span>Trivandrum</span><strong>₹8.6L</strong></div>
+                       <div class="mini-bar"><div class="mini-fill" style="width:60%"></div></div>
+                       <div class="mini-row"><span>Kozhikode</span><strong>₹6.2L</strong></div>
+                       <div class="mini-bar"><div class="mini-fill" style="width:40%"></div></div>
+                    </div>
+                 </div>
+                 <div class="sys-box">
+                    <div class="box-head">Top Products</div>
+                    <div style="display:flex;align-items:center;gap:1rem;height:70px">
+                       <!-- CSS Donut chart representation -->
+                       <div style="width:50px;height:50px;border-radius:50%;background:conic-gradient(#1a56db 0% 45%, #0ea5e9 45% 75%, #3b82f6 75% 100%);position:relative">
+                          <div style="position:absolute;top:10px;left:10px;right:10px;bottom:10px;background:#0f1523;border-radius:50%"></div>
+                       </div>
+                       <div style="flex:1;font-size:0.6rem;display:flex;flex-direction:column;gap:0.3rem">
+                          <div style="display:flex;justify-content:space-between"><span><span style="color:#1a56db">●</span> Mobiles</span><span>45%</span></div>
+                          <div style="display:flex;justify-content:space-between"><span><span style="color:#0ea5e9">●</span> Laptops</span><span>30%</span></div>
+                          <div style="display:flex;justify-content:space-between"><span><span style="color:#3b82f6">●</span> Acc.</span><span>25%</span></div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="sys-box">
+                    <div class="box-head">Recent Activity</div>
+                    <div style="overflow:hidden">
+                       <div class="act-row">
+                          <div class="act-icon">🛒</div>
+                          <div class="act-text">New order received<span class="act-time">2 mins ago</span></div>
+                       </div>
+                       <div class="act-row">
+                          <div class="act-icon" style="background:rgba(59,130,246,0.1);color:#3b82f6">👤</div>
+                          <div class="act-text">Lead from website<span class="act-time">5 mins ago</span></div>
+                       </div>
+                       <div class="act-row">
+                          <div class="act-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b">📦</div>
+                          <div class="act-text">Inventory updated<span class="act-time">12 mins ago</span></div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="laptop-base"></div>
+        <div class="laptop-base"><div class="laptop-lip"></div></div>
       </div>
       
+      <!-- Phone Mockup -->
       <div class="phone-mockup">
+        <div class="notch"></div>
         <div class="phone-screen">
-          <div class="phone-header">Mobile Hub</div>
-          <div class="phone-kpis">
-            <div class="p-kpi"><span>Active Leads</span><strong>24</strong></div>
-            <div class="p-kpi"><span>New Orders</span><strong>12</strong></div>
+          <div class="p-header">
+            <div class="p-logo"><div class="logo-box" style="width:14px;height:14px;font-size:0.5rem">TA</div> Teno</div>
+            <div class="p-live"><span style="color:#10b981">●</span> LIVE</div>
+            <div class="p-bell">🔔</div>
           </div>
-          <div class="p-item"><div class="p-avatar"></div><div class="p-line"></div></div>
-          <div class="p-item"><div class="p-avatar" style="background:#0ea5e9"></div><div class="p-line" style="width:40%"></div></div>
-          <div class="p-item"><div class="p-avatar"></div><div class="p-line" style="width:75%"></div></div>
+          <div class="p-body">
+            <div class="p-main-card">
+               <div class="p-main-title">Total Revenue</div>
+               <div class="p-main-val anim-rev"></div>
+               <div class="p-main-change">↑ 12% this month</div>
+               <div class="p-card-chart">
+                  <div class="p-bar"></div>
+                  <div class="p-bar"></div>
+                  <div class="p-bar"></div>
+                  <div class="p-bar"></div>
+               </div>
+            </div>
+            
+            <div class="p-kpis">
+               <div class="p-kpi">
+                  <span>Active Leads</span>
+                  <strong class="anim-leads"></strong>
+                  <div class="change">↑ 3 today</div>
+               </div>
+               <div class="p-kpi">
+                  <span>New Orders</span>
+                  <strong>12</strong>
+                  <div class="change">↑ 2 today</div>
+               </div>
+            </div>
+            
+            <div>
+               <div class="p-list-header">Quick Actions</div>
+               <div class="p-actions" style="margin-top:0.4rem">
+                  <div class="p-act-btn">
+                     <div class="p-act-icon" style="background:rgba(14,165,233,0.1);color:#0ea5e9">👤</div>
+                     <span>Add Lead</span>
+                  </div>
+                  <div class="p-act-btn">
+                     <div class="p-act-icon" style="background:rgba(16,185,129,0.1);color:#10b981">🛒</div>
+                     <span>New Order</span>
+                  </div>
+                  <div class="p-act-btn">
+                     <div class="p-act-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b">📦</div>
+                     <span>Inventory</span>
+                  </div>
+                  <div class="p-act-btn">
+                     <div class="p-act-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6">📊</div>
+                     <span>Reports</span>
+                  </div>
+               </div>
+            </div>
+            
+            <div style="flex:1">
+               <div class="p-list-header">Recent Leads <a href="#">View All</a></div>
+               <div style="margin-top:0.4rem;display:flex;flex-direction:column;gap:0.4rem">
+                  <div class="p-lead">
+                     <div class="p-avatar"></div>
+                     <div class="p-lead-info"><strong>Arjun Menon</strong><span>Interested in ERP</span></div>
+                     <div class="p-time">2m ago</div>
+                  </div>
+                  <div class="p-lead">
+                     <div class="p-avatar" style="background:#0ea5e9"></div>
+                     <div class="p-lead-info"><strong>Neha S Nair</strong><span>CRM Demo Req</span></div>
+                     <div class="p-time">1h ago</div>
+                  </div>
+               </div>
+            </div>
+          </div>
         </div>
       </div>
       
     </div>
   </div>
-  
-  <div class="capability-strip">
-    <div class="cap-item">CRM</div>
-    <div class="cap-item">ERP</div>
-    <div class="cap-item">Power BI</div>
-    <div class="cap-item">Custom Web Apps</div>
-    <div class="cap-item">Mobile Apps</div>
-    <div class="cap-item">Automation</div>
-    <div class="cap-item">AI Analytics</div>
-    <div class="cap-item">Integrations</div>
-  </div>
-
 </section>
+
+<!-- ══════════════════ CAPABILITY STRIP ══════════════════ -->
+<div class="capability-strip">
+  <div class="cap-item"><span class="cap-icon">👥</span> CRM</div>
+  <div class="cap-item"><span class="cap-icon">📦</span> ERP</div>
+  <div class="cap-item"><span class="cap-icon">📊</span> Power BI</div>
+  <div class="cap-item"><span class="cap-icon">💻</span> Custom Web Apps</div>
+  <div class="cap-item"><span class="cap-icon">📱</span> Mobile Apps</div>
+  <div class="cap-item"><span class="cap-icon">⚡</span> Automation</div>
+  <div class="cap-item"><span class="cap-icon">🧠</span> AI Analytics</div>
+  <div class="cap-item"><span class="cap-icon">🔌</span> Integrations</div>
+</div>
 
 <!-- ══════════════════ TECH LOGOS ══════════════════ -->
 <div class="logos-section">
