@@ -188,338 +188,394 @@ section { position: relative; z-index: 1; }
 /* ─── HERO ─── */
 .hero {
   min-height: 100vh;
-  background: var(--dark);
+  background: #050B18; /* Deep navy */
   display: flex;
   align-items: center;
   overflow: hidden;
   position: relative;
-  padding-top: 68px;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  font-family: 'Outfit', sans-serif;
 }
 
 .hero-bg-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(26,86,219,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,86,219,0.08) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(14,165,233,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,165,233,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.6;
 }
 
-.hero-glow-1 {
+.hero-glow-main {
   position: absolute;
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(26,86,219,0.25) 0%, transparent 65%);
-  top: -200px; right: -100px;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(26,86,219,0.15) 0%, transparent 60%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
-.hero-glow-2 {
-  position: absolute;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(14,165,233,0.2) 0%, transparent 65%);
-  bottom: -50px; left: 100px;
-  pointer-events: none;
-}
-
-.hero-inner {
-  max-width: 1200px;
+.hero-inner-new {
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 5%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
   width: 100%;
+  position: relative;
+  z-index: 10;
 }
 
-.hero-eyebrow {
+.hero-eyebrow-new {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(26,86,219,0.2);
-  border: 1px solid rgba(26,86,219,0.35);
-  color: #93c5fd;
+  gap: 0.6rem;
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.25);
+  color: #10b981; /* Subtle green for positive growth */
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 0.35rem 0.9rem;
+  padding: 0.4rem 1rem;
   border-radius: 100px;
   margin-bottom: 1.5rem;
-  animation: heroFade 0.7s ease both;
+  animation: fadeUp 0.8s ease backwards;
 }
 
-.hero-eyebrow::before {
-  content: '';
-  width: 6px; height: 6px;
-  background: var(--accent2);
+.live-dot {
+  width: 8px; height: 8px;
+  background: #10b981;
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  animation: pulseGreen 2s infinite;
 }
 
-@keyframes pulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50% { opacity:0.3; transform:scale(0.7); }
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(16,185,129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16,185,129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16,185,129, 0); }
 }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
+.hero-content h1 {
+  font-size: clamp(3rem, 5vw, 4.8rem);
   font-weight: 900;
-  line-height: 1.06;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: white;
-  animation: heroFade 0.7s 0.1s ease both;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s 0.1s ease backwards;
 }
 
-.hero h1 em {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  background: var(--grad);
+.text-gradient {
+  background: linear-gradient(135deg, #0ea5e9, #1a56db);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.hero-sub {
-  color: rgba(255,255,255,0.55);
-  font-size: 1.05rem;
-  line-height: 1.85;
-  margin-top: 1.5rem;
-  max-width: 520px;
-  animation: heroFade 0.7s 0.2s ease both;
+.hero-desc-new {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s 0.2s ease backwards;
 }
 
-.hero-actions {
+.hero-actions-new {
   display: flex;
   gap: 1rem;
-  margin-top: 2.5rem;
-  animation: heroFade 0.7s 0.3s ease both;
+  margin-bottom: 3.5rem;
+  animation: fadeUp 0.8s 0.3s ease backwards;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.85rem 2rem;
-  border-radius: 10px;
+.btn-blue-new {
+  background: linear-gradient(135deg, #1a56db, #0ea5e9);
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-decoration: none;
-  transition: all 0.2s;
-  cursor: pointer;
-  border: none;
-  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(26,86,219,0.4);
 }
 
-.btn-blue {
-  background: var(--grad);
-  color: white;
-  box-shadow: 0 4px 20px rgba(26,86,219,0.35);
-}
-
-.btn-blue:hover {
+.btn-blue-new:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(26,86,219,0.45);
+  box-shadow: 0 12px 30px rgba(26,86,219,0.6);
 }
 
-.btn-outline-white {
-  background: transparent;
+.btn-outline-glass {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
   color: white;
-  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0.9rem 2.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
 }
 
-.btn-outline-white:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.4);
+.btn-outline-glass:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.3);
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-}
-
-.btn-outline:hover {
-  background: var(--accent);
-  color: white;
-}
-
-.hero-trust {
-  margin-top: 3rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  animation: heroFade 0.7s 0.4s ease both;
-}
-
-.trust-item {
+.hero-brand-tag {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  color: rgba(255,255,255,0.5);
-  font-size: 0.82rem;
-  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  animation: fadeUp 0.8s 0.4s ease backwards;
 }
 
-.trust-icon {
-  width: 28px; height: 28px;
-  background: rgba(26,86,219,0.25);
-  border-radius: 6px;
+.tag-title {
+  font-weight: 800;
+  color: white;
+  font-size: 1rem;
+}
+
+.tag-divider { color: rgba(255,255,255,0.2); }
+
+.tag-desc {
+  font-size: 0.75rem;
+  color: #0ea5e9;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.tag-sub {
+  width: 100%;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.2rem;
+}
+
+/* RIGHT SIDE ECOSYSTEM */
+.hero-visual-ecosystem {
+  position: relative;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  animation: fadeUp 1s 0.4s ease backwards;
 }
 
-/* HERO DASHBOARD MOCKUP */
-.hero-visual {
-  animation: heroFade 0.8s 0.3s ease both;
-}
-
-.dashboard-mock {
-  background: rgba(255,255,255,0.04);
+.glass-panel {
+  position: absolute;
+  background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 1.5rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  z-index: 2;
+  transition: transform 0.3s;
 }
 
-.mock-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+.glass-panel:hover {
+  transform: translateY(-5px);
+  border-color: rgba(14,165,233,0.4);
 }
 
-.mock-dot { width: 10px; height: 10px; border-radius: 50%; }
-.d-red { background: #ef4444; }
-.d-yellow { background: #f59e0b; }
-.d-green { background: #10b981; }
-
-.mock-title {
-  color: rgba(255,255,255,0.6);
-  font-size: 0.78rem;
-  margin-left: 0.5rem;
-}
-
-.mock-kpis {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
-}
-
-.mock-kpi {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 10px;
-  padding: 1rem;
-}
-
-.mock-kpi-label {
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  margin-bottom: 0.4rem;
-}
-
-.mock-kpi-val {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
+.panel-title {
   color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
 }
 
-.mock-kpi-change {
-  font-size: 0.72rem;
-  color: var(--accent3);
-  margin-top: 0.1rem;
+.panel-sub {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.mock-chart {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 10px;
-  padding: 1rem;
-  height: 120px;
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
+.panel-crm { top: 5%; left: 0; }
+.panel-erp { top: -2%; right: 10%; }
+.panel-powerbi { top: 35%; right: -10%; }
+.panel-apps { bottom: 25%; left: -5%; }
+.panel-auto { bottom: -2%; right: 15%; }
+.panel-ai { top: 30%; left: -15%; }
+
+/* Laptop */
+.laptop-mockup {
+  position: relative;
+  width: 500px;
+  z-index: 5;
+  perspective: 1000px;
+}
+
+.laptop-screen {
+  background: #0a0e17;
+  border: 8px solid #1e293b;
+  border-radius: 16px 16px 0 0;
+  height: 320px;
   overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.bar {
-  flex: 1;
-  border-radius: 4px 4px 0 0;
-  background: var(--grad);
-  opacity: 0.7;
-  transition: opacity 0.2s;
-  animation: barGrow 1s ease both;
+.laptop-base {
+  height: 12px;
+  background: #334155;
+  border-radius: 0 0 16px 16px;
+  position: relative;
+}
+.laptop-base::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 60px; height: 4px;
+  background: #475569;
+  border-radius: 0 0 4px 4px;
 }
 
-.bar:hover { opacity: 1; }
-
-@keyframes barGrow {
-  from { transform: scaleY(0); transform-origin: bottom; }
-  to { transform: scaleY(1); }
+.sys-header {
+  background: #111827;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+.sys-logo { color: white; font-weight: 700; font-size: 0.8rem; }
+.sys-nav { display: flex; gap: 1rem; color: #64748b; font-size: 0.7rem; }
+.sys-nav span:first-child { color: #0ea5e9; }
 
-.mock-bottom {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
-  margin-top: 0.8rem;
-}
-
-.mock-mini {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+.sys-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+.sys-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+.sys-kpi {
+  background: #111827;
+  border: 1px solid #1e293b;
   border-radius: 8px;
   padding: 0.8rem;
 }
+.sys-kpi span { display: block; color: #64748b; font-size: 0.65rem; text-transform: uppercase; margin-bottom: 0.3rem;}
+.sys-kpi strong { display: block; color: white; font-size: 1.2rem; font-weight: 700; }
 
-.mock-mini-label {
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 0.5rem;
-}
-
-.mini-bar-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
-}
-
-.mini-bar-label {
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.45);
-  width: 30px;
-  flex-shrink: 0;
-}
-
-.mini-bar-track {
+.sys-chart-area {
   flex: 1;
-  height: 5px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 3px;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.c-bar {
+  flex: 1;
+  background: linear-gradient(to top, #1a56db, #0ea5e9);
+  border-radius: 4px 4px 0 0;
+  animation: liveBar 3s infinite alternate ease-in-out;
+}
+.c-bar:nth-child(2) { animation-delay: -0.5s; }
+.c-bar:nth-child(3) { animation-delay: -1s; }
+.c-bar:nth-child(4) { animation-delay: -1.5s; }
+.c-bar:nth-child(5) { animation-delay: -2s; }
+.c-bar:nth-child(6) { animation-delay: -2.5s; }
+.c-bar:nth-child(7) { animation-delay: -3s; }
+
+@keyframes liveBar {
+  0% { height: 30%; }
+  100% { height: 90%; }
+}
+
+/* Phone */
+.phone-mockup {
+  position: absolute;
+  width: 140px;
+  height: 280px;
+  background: #0a0e17;
+  border: 6px solid #1e293b;
+  border-radius: 24px;
+  bottom: -20px;
+  right: -20px;
+  z-index: 10;
   overflow: hidden;
+  box-shadow: -10px 10px 30px rgba(0,0,0,0.5);
 }
 
-.mini-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: var(--grad);
+.phone-screen { padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem; height: 100%; }
+.phone-header { color: white; font-size: 0.75rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
+.p-kpi { background: #111827; padding: 0.6rem; border-radius: 6px; border: 1px solid #1e293b;}
+.p-kpi span { color: #64748b; font-size: 0.6rem; display: block;}
+.p-kpi strong { color: white; font-size: 1rem; font-weight: 700; display: block;}
+
+.p-item { display: flex; gap: 0.5rem; align-items: center; background: #111827; padding: 0.5rem; border-radius: 6px; }
+.p-avatar { width: 20px; height: 20px; border-radius: 50%; background: #334155; }
+.p-line { height: 6px; width: 60%; background: #334155; border-radius: 3px; }
+
+/* Connection Lines */
+.connection-wrapper {
+  position: absolute;
+  inset: -100px;
+  z-index: 1;
+  pointer-events: none;
+}
+.conn-line {
+  stroke: rgba(14,165,233, 0.3);
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 4;
+  animation: dashAnim 20s linear infinite;
+}
+@keyframes dashAnim { to { stroke-dashoffset: -100; } }
+
+.data-particle {
+  fill: #0ea5e9;
+  filter: drop-shadow(0 0 4px #0ea5e9);
 }
 
-@keyframes heroFade {
-  from { opacity:0; transform:translateY(20px); }
-  to { opacity:1; transform:translateY(0); }
+/* Capability Strip */
+.capability-strip {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  z-index: 20;
+}
+.cap-item {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.cap-item:hover { color: white; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .hero-inner-new { grid-template-columns: 1fr; text-align: center; }
+  .hero-actions-new { justify-content: center; }
+  .hero-brand-tag { justify-content: center; }
+  .hero-visual-ecosystem { margin-top: 3rem; }
+  .capability-strip { display: none; }
+  .glass-panel { display: none; }
 }
 
 /* ─── LOGOS ─── */
@@ -1527,96 +1583,136 @@ footer {
 <!-- ══════════════════ HERO ══════════════════ -->
 <section id="home" class="hero">
   <div class="hero-bg-grid"></div>
-  <div class="hero-glow-1"></div>
-  <div class="hero-glow-2"></div>
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-eyebrow">Kerala's Data Analytics Partner</div>
-      <h1>Transform Business Data Into <em>Growth</em></h1>
-      <p class="hero-sub">We help businesses unlock insights through dashboards, automation, analytics, and AI-powered reporting — so you make smarter decisions every single day.</p>
-      <div class="hero-actions">
-        <a href="#consult" class="btn btn-blue">📅 Book Free Consultation</a>
-        <a href="#services" class="btn btn-outline-white">View Services →</a>
+  <div class="hero-glow-main"></div>
+  
+  <div class="hero-inner-new">
+    
+    <div class="hero-content">
+      <div class="hero-eyebrow-new">
+        <div class="live-dot"></div> LIVE SYSTEM
       </div>
-      <div class="hero-trust">
-        <div class="trust-item">
-          <div class="trust-icon">📊</div>
-          Power BI Dashboards
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">⚡</div>
-          Reporting Automation
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">🤖</div>
-          AI Analytics
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">📈</div>
-          Sales Forecasting
-        </div>
+      
+      <h1>Build Smarter.<br>Run Better.<br><span class="text-gradient">Grow Faster.</span></h1>
+      
+      <p class="hero-desc-new">We build the digital systems behind modern businesses — from CRM and ERP platforms to Power BI analytics, custom applications and intelligent automation.</p>
+      
+      <div class="hero-actions-new">
+        <a href="#consult" class="btn-blue-new">Build Your Business System</a>
+        <a href="#services" class="btn-outline-glass">Explore Our Solutions →</a>
+      </div>
+      
+      <div class="hero-brand-tag">
+        <span class="tag-title">Teno Analytics</span>
+        <span class="tag-divider">|</span>
+        <span class="tag-desc">BUSINESS SYSTEMS • DATA • AUTOMATION</span>
+        <div class="tag-sub">One technology partner. Your entire business ecosystem.</div>
       </div>
     </div>
+    
+    <div class="hero-visual-ecosystem">
+      
+      <!-- Floating Glass Panels -->
+      <div class="glass-panel panel-crm">
+        <div class="panel-title">CRM</div>
+        <div class="panel-sub">Leads • Customers • Sales</div>
+      </div>
+      <div class="glass-panel panel-erp">
+        <div class="panel-title">ERP</div>
+        <div class="panel-sub">Inventory • Purchase • Operations</div>
+      </div>
+      <div class="glass-panel panel-powerbi">
+        <div class="panel-title">Power BI</div>
+        <div class="panel-sub">Dashboards • Insights • Forecasting</div>
+      </div>
+      <div class="glass-panel panel-apps">
+        <div class="panel-title">Custom Apps</div>
+        <div class="panel-sub">Web • Mobile • Internal Tools</div>
+      </div>
+      <div class="glass-panel panel-auto">
+        <div class="panel-title">Automation</div>
+        <div class="panel-sub">Reports • Workflows • Integrations</div>
+      </div>
+      <div class="glass-panel panel-ai">
+        <div class="panel-title">AI Analytics</div>
+        <div class="panel-sub">Predictions • Intelligence • Optimization</div>
+      </div>
 
-    <div class="hero-visual">
-      <div class="dashboard-mock">
-        <div class="mock-header">
-          <div class="mock-dot d-red"></div>
-          <div class="mock-dot d-yellow"></div>
-          <div class="mock-dot d-green"></div>
-          <span class="mock-title">Sales Performance Dashboard — Q2 2025</span>
+      <!-- Connection SVG Background -->
+      <svg class="connection-wrapper" viewBox="0 0 800 600">
+        <!-- Lines -->
+        <path id="path1" class="conn-line" d="M 100 150 Q 250 150 400 300" />
+        <path id="path2" class="conn-line" d="M 700 150 Q 550 150 400 300" />
+        <path id="path3" class="conn-line" d="M 100 450 Q 250 450 400 300" />
+        <path id="path4" class="conn-line" d="M 700 450 Q 550 450 400 300" />
+        <!-- Particles -->
+        <circle class="data-particle" r="3">
+           <animateMotion dur="4s" repeatCount="indefinite" path="M 100 150 Q 250 150 400 300" />
+        </circle>
+        <circle class="data-particle" r="3">
+           <animateMotion dur="3.5s" repeatCount="indefinite" path="M 700 150 Q 550 150 400 300" />
+        </circle>
+        <circle class="data-particle" r="3">
+           <animateMotion dur="4.5s" repeatCount="indefinite" path="M 100 450 Q 250 450 400 300" />
+        </circle>
+        <circle class="data-particle" r="3">
+           <animateMotion dur="3s" repeatCount="indefinite" path="M 700 450 Q 550 450 400 300" />
+        </circle>
+      </svg>
+      
+      <div class="laptop-mockup">
+        <div class="laptop-screen">
+          <div class="sys-header">
+            <div class="sys-logo">Teno Business System</div>
+            <div class="sys-nav"><span>Overview</span><span>CRM</span><span>ERP</span></div>
+          </div>
+          <div class="sys-body">
+            <div class="sys-kpis">
+              <div class="sys-kpi"><span>Revenue</span><strong>₹48.2L</strong></div>
+              <div class="sys-kpi"><span>Orders</span><strong>1,482</strong></div>
+              <div class="sys-kpi"><span>Customers</span><strong>892</strong></div>
+            </div>
+            <div class="sys-chart-area">
+               <div class="c-bar" style="height: 40%"></div>
+               <div class="c-bar" style="height: 62%"></div>
+               <div class="c-bar" style="height: 38%"></div>
+               <div class="c-bar" style="height: 75%"></div>
+               <div class="c-bar" style="height: 55%"></div>
+               <div class="c-bar" style="height: 88%"></div>
+               <div class="c-bar" style="height: 67%"></div>
+               <div class="c-bar" style="height: 92%"></div>
+            </div>
+          </div>
         </div>
-        <div class="mock-kpis">
-          <div class="mock-kpi">
-            <div class="mock-kpi-label">Total Revenue</div>
-            <div class="mock-kpi-val">₹48.2L</div>
-            <div class="mock-kpi-change">↑ 23% vs last month</div>
+        <div class="laptop-base"></div>
+      </div>
+      
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-header">Mobile Hub</div>
+          <div class="phone-kpis">
+            <div class="p-kpi"><span>Active Leads</span><strong>24</strong></div>
+            <div class="p-kpi"><span>New Orders</span><strong>12</strong></div>
           </div>
-          <div class="mock-kpi">
-            <div class="mock-kpi-label">Target Achievement</div>
-            <div class="mock-kpi-val">94.6%</div>
-            <div class="mock-kpi-change">↑ 8% vs last month</div>
-          </div>
-          <div class="mock-kpi">
-            <div class="mock-kpi-label">Active Branches</div>
-            <div class="mock-kpi-val">12</div>
-            <div class="mock-kpi-change">↑ 2 new branches</div>
-          </div>
-          <div class="mock-kpi">
-            <div class="mock-kpi-label">Reporting Time</div>
-            <div class="mock-kpi-val">2 hrs</div>
-            <div class="mock-kpi-change">↓ from 16 hrs manual</div>
-          </div>
-        </div>
-        <div class="mock-chart">
-          <div class="bar" style="height:45%"></div>
-          <div class="bar" style="height:62%;animation-delay:0.1s"></div>
-          <div class="bar" style="height:38%;animation-delay:0.15s"></div>
-          <div class="bar" style="height:75%;animation-delay:0.2s"></div>
-          <div class="bar" style="height:55%;animation-delay:0.25s"></div>
-          <div class="bar" style="height:88%;animation-delay:0.3s"></div>
-          <div class="bar" style="height:67%;animation-delay:0.35s"></div>
-          <div class="bar" style="height:92%;animation-delay:0.4s"></div>
-          <div class="bar" style="height:71%;animation-delay:0.45s"></div>
-          <div class="bar" style="height:84%;animation-delay:0.5s"></div>
-        </div>
-        <div class="mock-bottom">
-          <div class="mock-mini">
-            <div class="mock-mini-label">Branch Performance</div>
-            <div class="mini-bar-row"><span class="mini-bar-label">KCH</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:85%"></div></div></div>
-            <div class="mini-bar-row"><span class="mini-bar-label">TVM</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:70%"></div></div></div>
-            <div class="mini-bar-row"><span class="mini-bar-label">MNG</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:55%"></div></div></div>
-          </div>
-          <div class="mock-mini">
-            <div class="mock-mini-label">Product Mix</div>
-            <div class="mini-bar-row"><span class="mini-bar-label">MOB</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:78%"></div></div></div>
-            <div class="mini-bar-row"><span class="mini-bar-label">LAP</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:42%"></div></div></div>
-            <div class="mini-bar-row"><span class="mini-bar-label">ACC</span><div class="mini-bar-track"><div class="mini-bar-fill" style="width:31%"></div></div></div>
-          </div>
+          <div class="p-item"><div class="p-avatar"></div><div class="p-line"></div></div>
+          <div class="p-item"><div class="p-avatar" style="background:#0ea5e9"></div><div class="p-line" style="width:40%"></div></div>
+          <div class="p-item"><div class="p-avatar"></div><div class="p-line" style="width:75%"></div></div>
         </div>
       </div>
+      
     </div>
   </div>
+  
+  <div class="capability-strip">
+    <div class="cap-item">CRM</div>
+    <div class="cap-item">ERP</div>
+    <div class="cap-item">Power BI</div>
+    <div class="cap-item">Custom Web Apps</div>
+    <div class="cap-item">Mobile Apps</div>
+    <div class="cap-item">Automation</div>
+    <div class="cap-item">AI Analytics</div>
+    <div class="cap-item">Integrations</div>
+  </div>
+
 </section>
 
 <!-- ══════════════════ TECH LOGOS ══════════════════ -->
